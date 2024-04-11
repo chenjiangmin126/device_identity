@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -29,25 +30,33 @@ class _MyAppState extends State<MyApp> {
   /// 获取AndroidId
   Future<void> getAndroidId() async {
     String androidId = await DeviceIdentity.androidId;
-    print("getAndroidId：$androidId");
+    if (kDebugMode) {
+      print("getAndroidId：$androidId");
+    }
   }
 
   /// 获取imei
   Future<void> getImei() async {
     String imei = await DeviceIdentity.imei;
-    print("getImei：$imei");
+    if (kDebugMode) {
+      print("getImei：$imei");
+    }
   }
 
   /// 获取oaid
   Future<void> getOaid() async {
     String oaid = await DeviceIdentity.oaid;
-    print("getOaid：$oaid");
+    if (kDebugMode) {
+      print("getOaid：$oaid");
+    }
   }
 
   /// 获取ua
   Future<void> getUa() async {
     String ua = await DeviceIdentity.ua;
-    print("getUa：$ua");
+    if (kDebugMode) {
+      print("getUa：$ua");
+    }
   }
 
   @override
@@ -61,8 +70,7 @@ class _MyAppState extends State<MyApp> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                ElevatedButton(
-                    onPressed: getAndroidId, child: const Text("获取AndroidId")),
+                ElevatedButton(onPressed: getAndroidId, child: const Text("获取AndroidId")),
                 const SizedBox(
                   height: 20,
                 ),

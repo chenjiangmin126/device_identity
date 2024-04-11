@@ -1,4 +1,3 @@
-
 import 'dart:async';
 import 'dart:io';
 
@@ -57,8 +56,21 @@ class DeviceIdentity {
       final String ua = await _channel.invokeMethod('getUA');
       return ua;
     }
+    if (Platform.isIOS) {
+      final String ua = await _channel.invokeMethod('getUA');
+      return ua;
+    }
 
     return "";
   }
 
+  /// 获取IDFA，可能为空
+  static Future<String> get idfa async {
+    if (Platform.isIOS) {
+      final String idfa = await _channel.invokeMethod('getIDFA');
+      return idfa;
+    }
+
+    return "";
+  }
 }
