@@ -73,4 +73,14 @@ class DeviceIdentity {
 
     return "";
   }
+
+  /// 获取Mac地址，可能为空
+  static Future<String> get mac async {
+    if (isAndroid) {
+      final String mac = await _channel.invokeMethod('getMac');
+      return mac;
+    }
+
+    return "";
+  }
 }

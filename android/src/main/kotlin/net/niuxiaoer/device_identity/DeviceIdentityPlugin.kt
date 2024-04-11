@@ -44,6 +44,12 @@ class DeviceIdentityPlugin: FlutterPlugin, MethodCallHandler {
       "getUA" -> {
         result.success(deviceIdentityUtil.getUA())
       }
+      "getMac" -> {
+        result.success(deviceIdentityUtil.getMacAddress(context))
+      }
+      else -> {
+        result.notImplemented()
+      }
     }
   }
 

@@ -59,6 +59,21 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  /// 获取mac
+  Future<void> getMac() async {
+    String mac = await DeviceIdentity.mac;
+    if (kDebugMode) {
+      print("getMac：$mac");
+    }
+  }
+
+  Future<void> getIdfa() async {
+    String idfa = await DeviceIdentity.idfa;
+    if (kDebugMode) {
+      print("getIdFa：$idfa");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -83,6 +98,14 @@ class _MyAppState extends State<MyApp> {
                   height: 20,
                 ),
                 ElevatedButton(onPressed: getUa, child: const Text("获取ua")),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(onPressed: getIdfa, child: const Text("获取idfa")),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(onPressed: getMac, child: const Text("获取mac")),
               ],
             ),
           ),
